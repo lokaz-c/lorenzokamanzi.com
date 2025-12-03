@@ -1,0 +1,176 @@
+/* ============================================
+   STYLE VARIATION 1: CORPORATE NEUTRAL
+   Goldman × McKinsey vibe
+   Ultra-professional, traditional, authoritative
+   ============================================ */
+
+[data-theme='corporate'] {
+  /* Typography adjustments */
+  --font-weight-heading: 700;
+  --font-weight-body: 400;
+  --letter-spacing: 0.02em;
+
+  /* Color refinements */
+  --accent-opacity: 0.05;
+  --border-weight: 1px;
+}
+
+[data-theme='corporate'] h1,
+[data-theme='corporate'] h2,
+[data-theme='corporate'] h3 {
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+[data-theme='corporate'] .section-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+
+[data-theme='corporate'] .card {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme='corporate'] .card:hover {
+  border-color: rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+[data-theme='corporate'] .button {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 0;
+}
+
+/* ============================================
+   STYLE VARIATION 2: TECH FOUNDER POLISHED
+   Apple × Vercel vibe (DEFAULT)
+   Modern, minimal, sophisticated
+   ============================================ */
+
+[data-theme='tech'],
+:root {
+  --font-weight-heading: 700;
+  --font-weight-body: 400;
+  --letter-spacing: -0.01em;
+
+  --accent-opacity: 0.03;
+  --border-weight: 1px;
+}
+
+[data-theme='tech'] h1,
+[data-theme='tech'] h2,
+[data-theme='tech'] h3 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+[data-theme='tech'] .section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+[data-theme='tech'] .card {
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-theme='tech'] .card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+}
+
+[data-theme='tech'] .button {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  border-radius: 0;
+}
+
+/* ============================================
+   STYLE VARIATION 3: PLAYFUL MINIMALIST
+   Framer × indie portfolio vibe
+   Friendly, approachable, creative
+   ============================================ */
+
+[data-theme='playful'] {
+  --font-weight-heading: 800;
+  --font-weight-body: 400;
+  --letter-spacing: -0.02em;
+
+  --accent-opacity: 0.04;
+  --border-weight: 2px;
+}
+
+[data-theme='playful'] h1,
+[data-theme='playful'] h2,
+[data-theme='playful'] h3 {
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+
+[data-theme='playful'] .section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+[data-theme='playful'] .card {
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.12);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+[data-theme='playful'] .card:hover {
+  border-color: rgba(0, 0, 0, 0.25);
+  transform: translateY(-12px) rotate(-1deg);
+}
+
+[data-theme='playful'] .button {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  padding: 1.2rem 2.5rem;
+  border-radius: 0;
+  border-width: 2px;
+}
+
+/* ============================================
+   SHARED UTILITIES
+   ============================================ */
+
+.section-spacing {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.container-width {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-width {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
