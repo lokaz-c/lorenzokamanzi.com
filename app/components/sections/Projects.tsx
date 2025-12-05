@@ -28,7 +28,7 @@ const projects = [
     ],
     tech: ['Python', 'Flask', 'PostgreSQL', 'Docker'],
     category: 'Finance Tool',
-    link: 'https://github.com/lokaz-c'
+    link: 'https://github.com/lokaz-c/quant'
   },
   {
     id: 3,
