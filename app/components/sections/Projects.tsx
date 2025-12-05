@@ -109,21 +109,9 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredProject(project.id)}
-              onHoverEnd={() => setHoveredProject(null)}
-              className="group relative"
-            >
-              <motion.div
-                whileHover={{ y: -8 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                className="h-full border border-deep-charcoal/10 bg-light-grey p-8 relative overflow-hidden"
-              >
+          {projects.map((project, index) => {
+            const CardContent = (
+              <>
                 {/* Hover effect line */}
                 <motion.div
                   initial={{ scaleX: 0 }}
@@ -191,24 +179,51 @@ const Projects = () => {
                   ))}
                 </div>
 
-                {/* View Project Link */}
+                {/* View Project Indicator */}
                 {project.link && (
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ x: 4 }}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-deep-charcoal transition-colors"
-                  >
+                  <div className="inline-flex items-center gap-2 text-sm font-medium text-black group-hover:text-deep-charcoal transition-colors">
                     <span>{project.link.includes('buildwithcreo') ? 'Visit Website' : 'View on GitHub'}</span>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
+                  </div>
+                )}
+              </>
+            )
+
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                onHoverStart={() => setHoveredProject(project.id)}
+                onHoverEnd={() => setHoveredProject(null)}
+                className="group relative"
+              >
+                {project.link ? (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -8 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                    className="block h-full border border-deep-charcoal/10 bg-light-grey p-8 relative overflow-hidden cursor-pointer"
+                  >
+                    {CardContent}
                   </motion.a>
+                ) : (
+                  <motion.div
+                    whileHover={{ y: -8 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+                    className="h-full border border-deep-charcoal/10 bg-light-grey p-8 relative overflow-hidden"
+                  >
+                    {CardContent}
+                  </motion.div>
                 )}
               </motion.div>
-            </motion.div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
