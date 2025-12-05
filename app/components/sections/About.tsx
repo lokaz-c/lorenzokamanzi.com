@@ -43,7 +43,7 @@ const About = () => {
             <div className="space-y-4 text-deep-charcoal/80 text-lg leading-relaxed">
               <p>
                 I'm a double major in Computer Science and Finance at Rutgers University (Honors Track),
-                Class of 2028. As Co-Founder and Lead Engineer at Foundly, I'm building AI-powered systems
+                Class of 2028. As Co-Founder and Lead Engineer at Creo, I'm building AI-powered systems
                 that help entrepreneurs turn ideas into fully automated businesses.
               </p>
               <p>

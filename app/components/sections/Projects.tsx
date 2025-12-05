@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 const projects = [
   {
     id: 1,
-    title: 'Foundly – AI Business Automation Platform',
+    title: 'Creo – AI Business Automation Platform',
     description: 'Co-founded AI SaaS startup enabling users to build entire businesses from an idea.',
     bullets: [
       'Scaled backend to handle 10,000+ concurrent requests with sub-300ms response time and 99.5% success rate',
@@ -14,7 +14,8 @@ const projects = [
       'Launched closed beta to 45 users; projected $36K ARR within first 90 days post-launch'
     ],
     tech: ['Python', 'Flask', 'GCP', 'REST APIs', 'AI Integration'],
-    category: 'AI SaaS Platform'
+    category: 'AI SaaS Platform',
+    link: 'https://buildwithcreo.com'
   },
   {
     id: 2,
@@ -26,7 +27,8 @@ const projects = [
       'Analyzed performance metrics across multiple market conditions'
     ],
     tech: ['Python', 'Flask', 'PostgreSQL', 'Docker'],
-    category: 'Finance Tool'
+    category: 'Finance Tool',
+    link: 'https://github.com/lokaz-c'
   },
   {
     id: 3,
@@ -38,7 +40,8 @@ const projects = [
       'Integrated Firebase for real-time data sync and personalization'
     ],
     tech: ['Flutter', 'Dart', 'OpenAI API', 'Firebase', 'Git'],
-    category: 'AI Application'
+    category: 'AI Application',
+    link: 'https://github.com/lokaz-c'
   },
   {
     id: 4,
@@ -50,7 +53,8 @@ const projects = [
       'Automated data migration of 10+ years of records, reducing retrieval latency from minutes to under 5 seconds'
     ],
     tech: ['Python', 'SQL', 'ERP Systems', 'Cloud Database'],
-    category: 'Enterprise System'
+    category: 'Enterprise System',
+    link: null
   },
   {
     id: 5,
@@ -62,7 +66,8 @@ const projects = [
       'Built Flask REST API + React frontend, reducing API latency by 22% post-deployment'
     ],
     tech: ['React', 'Flask', 'REST APIs', 'JavaScript', 'Python'],
-    category: 'Education Tech'
+    category: 'Education Tech',
+    link: 'https://github.com/lokaz-c'
   },
   {
     id: 6,
@@ -74,7 +79,8 @@ const projects = [
       'Applied data ethics protocols reducing analysis error rate by 31% across team'
     ],
     tech: ['Python', 'Pandas', 'NumPy', 'Excel', 'Data Viz'],
-    category: 'Data Research'
+    category: 'Data Research',
+    link: 'https://github.com/lokaz-c'
   }
 ]
 
@@ -171,7 +177,7 @@ const Projects = () => {
                 </ul>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, i) => (
                     <motion.span
                       key={i}
@@ -184,6 +190,22 @@ const Projects = () => {
                     </motion.span>
                   ))}
                 </div>
+
+                {/* View Project Link */}
+                {project.link && (
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ x: 4 }}
+                    className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-deep-charcoal transition-colors"
+                  >
+                    <span>{project.link.includes('buildwithcreo') ? 'Visit Website' : 'View on GitHub'}</span>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </motion.a>
+                )}
               </motion.div>
             </motion.div>
           ))}

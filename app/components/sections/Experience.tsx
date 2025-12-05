@@ -7,7 +7,7 @@ const experiences = [
   {
     id: 1,
     role: 'Co-Founder & Lead Engineer',
-    company: 'Foundly',
+    company: 'Creo',
     period: 'June 2025 – Present',
     location: 'Remote',
     description: 'Building AI SaaS platform enabling users to create entire businesses from an idea.',
