@@ -11,8 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Lorenzo Kamanzi | Software Engineer & Co-Founder',
-  description: 'Lorenzo Kamanzi - Computer Science & Finance at Rutgers University. Co-Founder at Creo. Building scalable AI systems and full-stack applications.',
-  keywords: ['Lorenzo Kamanzi', 'Software Engineer', 'Full-Stack Developer', 'AI SaaS', 'Rutgers', 'Computer Science', 'Finance', 'Creo'],
+  description: 'Lorenzo Kamanzi - Computer Science & Finance at Rutgers University. Co-Founder & Software Engineer at Creo. Building edge services, trading tools and full-stack applications.',
+  keywords: ['Lorenzo Kamanzi', 'Software Engineer', 'Full-Stack Developer', 'Rutgers', 'Computer Science', 'Finance', 'Creo', 'TypeScript', 'Python', 'Cloudflare Workers', 'Quantitative Finance'],
 }
 
 export default function RootLayout({

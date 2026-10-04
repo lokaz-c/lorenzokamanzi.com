@@ -6,81 +6,33 @@ import { useRef, useState } from 'react'
 const projects = [
   {
     id: 1,
-    title: 'Creo – AI Business Automation Platform',
-    description: 'Co-founded AI SaaS startup enabling users to build entire businesses from an idea.',
+    title: 'TradeDesk – Stateful LLM Chat Service on the Edge',
+    description: 'Ticker-aware trading research chat on Cloudflare\'s edge stack, with one Durable Object per conversation.',
     bullets: [
-      'Scaled backend to handle 10,000+ concurrent requests with sub-300ms response time and 99.5% success rate',
-      'Integrated 15+ AI APIs across marketing, development, and automation workflows',
-      'Launched closed beta to 45 users; projected $36K ARR within first 90 days post-launch'
+      'One Durable Object per session: single-threaded, strongly consistent conversation state with no locking in app code',
+      'Context is the last 20 messages plus the three latest same-ticker analyses, pulled from D1 per request',
+      'Streams Llama 3.3 70B replies as server-sent events; a tee\'d copy is persisted to DO storage and D1 in the background',
+      'D1 (SQLite) schema under migrations, indexed on ticker, session and recency; history and rollup routes',
+      'Single-file Vite front end: streaming markdown render, Web Speech API voice input, per-ticker history sidebar'
     ],
-    tech: ['Python', 'Flask', 'GCP', 'REST APIs', 'AI Integration'],
-    category: 'AI SaaS Platform',
-    link: 'https://buildwithcreo.com'
+    tech: ['TypeScript', 'Cloudflare Workers', 'Durable Objects', 'D1 (SQLite)', 'Workers AI', 'Vite'],
+    category: 'Edge Backend',
+    period: 'Apr 2026',
+    link: 'https://github.com/lokaz-c/cf_ai_tradedesk'
   },
   {
     id: 2,
-    title: 'Quant Investing Portfolio Simulator',
-    description: 'Trading strategy backtesting platform using real market data and risk management.',
+    title: 'Quantitative Trading Simulator',
+    description: 'Backtesting platform for systematic trading strategies, with a risk layer and synthetic market data.',
     bullets: [
-      'Developed basic trading strategy simulator processing 30,000+ data points',
-      'Implemented risk rules that reduced drawdown by 3% during backtests',
-      'Analyzed performance metrics across multiple market conditions'
+      'Backtesting engine: pluggable strategies (MA crossover, RSI, ATR breakout), Sharpe, CAGR and drawdown metrics',
+      'Risk layer (position caps, stop-losses) benchmarked vs. an unmanaged baseline; Flask REST API and dashboard',
+      'Regime-switching GBM data generator (bull, bear, sideways); 23 pytest tests run in CI on Python 3.10 and 3.11'
     ],
-    tech: ['Python', 'Flask', 'PostgreSQL', 'Docker'],
-    category: 'Finance Tool',
+    tech: ['Python', 'Flask', 'PostgreSQL', 'Docker', 'pytest'],
+    category: 'Quant Finance',
+    period: 'Dec 2025 – Present',
     link: 'https://github.com/lokaz-c/quant'
-  },
-  {
-    id: 3,
-    title: 'Mental Health AI Coach',
-    description: 'NLP chatbot providing personalized mental health support with real-time responses.',
-    bullets: [
-      'Achieved 94% sentiment classification accuracy using OpenAI GPT APIs',
-      'Increased user engagement by 38% during testing phase',
-      'Integrated Firebase for real-time data sync and personalization'
-    ],
-    tech: ['Flutter', 'Dart', 'OpenAI API', 'Firebase', 'Git'],
-    category: 'AI Application',
-    link: 'https://github.com/lokaz-c'
-  },
-  {
-    id: 4,
-    title: 'DIKAM ERP Implementation',
-    description: 'Enterprise resource planning system deployed across manufacturing operations in Rwanda.',
-    bullets: [
-      'Digitized workflows for 280+ employees, cutting manual reporting time by 65%',
-      'Improved data accuracy by 40% through inventory, procurement, and payroll integration',
-      'Automated data migration of 10+ years of records, reducing retrieval latency from minutes to under 5 seconds'
-    ],
-    tech: ['Python', 'SQL', 'ERP Systems', 'Cloud Database'],
-    category: 'Enterprise System',
-    link: null
-  },
-  {
-    id: 5,
-    title: 'All-Star Code STEM Learning App',
-    description: 'Educational platform used by 150+ daily active users across NYC schools.',
-    bullets: [
-      'Led team of 3 developers to build gamification system improving engagement by 65%',
-      'Increased lesson completion rates by 47% through interactive features',
-      'Built Flask REST API + React frontend, reducing API latency by 22% post-deployment'
-    ],
-    tech: ['React', 'Flask', 'REST APIs', 'JavaScript', 'Python'],
-    category: 'Education Tech',
-    link: 'https://github.com/lokaz-c'
-  },
-  {
-    id: 6,
-    title: 'Urban Crash Data Analysis',
-    description: 'Research platform analyzing 2.4M+ city crash records for Columbia University.',
-    bullets: [
-      'Processed massive datasets using pandas and NumPy to find population density correlations',
-      'Built data visualization dashboards improving research report readability by 70%',
-      'Applied data ethics protocols reducing analysis error rate by 31% across team'
-    ],
-    tech: ['Python', 'Pandas', 'NumPy', 'Excel', 'Data Viz'],
-    category: 'Data Research',
-    link: 'https://github.com/lokaz-c'
   }
 ]
 
@@ -123,7 +75,7 @@ const Projects = () => {
                 {/* Category Tag */}
                 <div className="flex items-center justify-between mb-6">
                   <span className="text-xs uppercase tracking-wider text-deep-charcoal/60 font-medium">
-                    {project.category}
+                    {project.category} · {project.period}
                   </span>
                   <motion.div
                     animate={{
@@ -182,7 +134,7 @@ const Projects = () => {
                 {/* View Project Indicator */}
                 {project.link && (
                   <div className="inline-flex items-center gap-2 text-sm font-medium text-black group-hover:text-deep-charcoal transition-colors">
-                    <span>{project.link.includes('buildwithcreo') ? 'Visit Website' : 'View on GitHub'}</span>
+                    <span>{project.link.includes('github.com') ? 'View on GitHub' : 'Visit Website'}</span>
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>

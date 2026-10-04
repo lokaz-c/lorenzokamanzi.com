@@ -35,8 +35,8 @@ const opportunities = [
     pitch: 'Develop systematic strategies backed by rigorous research and backtesting.',
     value: [
       'Strong foundation in probability and statistics',
-      'Experience with financial modeling and derivatives',
-      'Python/R proficiency for quantitative analysis',
+      'Backtesting experience with Sharpe, CAGR and drawdown metrics',
+      'Python (Pandas, NumPy) for quantitative analysis',
       'Research mindset with practical implementation skills'
     ]
   },
@@ -195,7 +195,7 @@ const Opportunities = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href="mailto:kamanzi.lorenzo06@gmail.com"
+              href="mailto:kamanzilorenzo17@gmail.com"
               whileHover={{ scale: 1.02, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 bg-black text-white rounded-none font-medium text-sm tracking-wide uppercase transition-all hover:bg-deep-charcoal"

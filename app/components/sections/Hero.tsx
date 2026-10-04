@@ -58,7 +58,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-lg md:text-xl text-deep-charcoal/70 mb-12 max-w-2xl mx-auto font-light">
-            Co-Founder & Lead Engineer building AI-powered systems at scale.
+            Co-Founder & Software Engineer at Creo.
             Rutgers University, Class of 2028.
           </p>
         </motion.div>
@@ -71,7 +71,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <motion.a
-            href="mailto:kamanzi.lorenzo06@gmail.com"
+            href="mailto:kamanzilorenzo17@gmail.com"
             whileHover={{ scale: 1.02, y: -2 }}
             whileTap={{ scale: 0.98 }}
             className="px-8 py-4 bg-black text-white rounded-none font-medium text-sm tracking-wide uppercase transition-all hover:bg-deep-charcoal w-full sm:w-auto"
@@ -79,7 +79,7 @@ const Hero = () => {
             Get in Touch
           </motion.a>
           <motion.a
-            href="/Lorenzo_swe_cs-3.pdf"
+            href="/Lorenzo_Kamanzi_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.02, y: -2 }}
@@ -88,6 +88,22 @@ const Hero = () => {
           >
             View Resume
           </motion.a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-6"
+        >
+          <a
+            href="/Lorenzo_Kamanzi_Resume_Finance.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-deep-charcoal/60 underline underline-offset-4 hover:text-black transition-colors"
+          >
+            Finance &amp; quant resume
+          </a>
         </motion.div>
 
         {/* Scroll indicator */}

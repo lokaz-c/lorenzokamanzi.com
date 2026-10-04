@@ -4,11 +4,24 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 
 const funFacts = [
-  { id: 1, emoji: '🚀', text: 'Co-founded AI SaaS startup' },
-  { id: 2, emoji: '🏆', text: 'HackRU Finalist (Top 5%)' },
+  { id: 1, emoji: '🚀', text: 'Co-founded Creo (984 signups)' },
+  { id: 2, emoji: '🏆', text: 'HackRU Finalist (Top 5% of 142)' },
   { id: 3, emoji: '🌍', text: 'All-Star Code Scholar' },
-  { id: 4, emoji: '📈', text: 'Dean\'s List All Semesters' },
+  { id: 4, emoji: '📈', text: 'Dean\'s List · 3.8 GPA' },
 ]
+
+const education = {
+  school: 'Rutgers University – New Brunswick',
+  degree: 'B.S. in Computer Science and Finance (double major)',
+  gpa: '3.8/4.0',
+  graduation: 'Expected May 2028',
+  location: 'New Brunswick, NJ',
+  details: [
+    { label: 'Honors', text: 'Dean\'s List, HackRU Finalist (Fall 2025, top 5% of 142 projects), All-Star Code Scholar' },
+    { label: 'Activities', text: 'NSBE, CodePath, USACS' },
+    { label: 'Coursework', text: 'Data Structures & Algorithms, Computer Architecture, Discrete Math, Probability' },
+  ],
+}
 
 const About = () => {
   const ref = useRef(null)
@@ -38,23 +51,26 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black leading-tight">
-              Building at the Intersection of AI & Business
+              Building at the Intersection of Software & Finance
             </h2>
             <div className="space-y-4 text-deep-charcoal/80 text-lg leading-relaxed">
               <p>
-                I'm a double major in Computer Science and Finance at Rutgers University (Honors Track),
-                Class of 2028. As Co-Founder and Lead Engineer at Creo, I'm building AI-powered systems
-                that help entrepreneurs turn ideas into fully automated businesses.
+                I'm a double major in Computer Science and Finance at Rutgers University–New Brunswick,
+                graduating May 2028. With one co-founder I built Creo, a startup validation platform with
+                984 signups, where I wrote the scoring engine and a two-stage competitor check that settles
+                clear cases without an API call.
               </p>
               <p>
-                From scaling backends to handle 10,000+ concurrent requests to deploying ERP systems across
-                manufacturing operations in Rwanda, I thrive on solving complex technical challenges with real
-                business impact. My approach combines engineering rigor with strategic thinking—whether it's
-                optimizing system performance or designing scalable SaaS architectures.
+                In summer 2025 I led an Odoo ERP rollout at DIKAM Fashion, a garment manufacturer in Kigali:
+                I wrote a custom manufacturing module, migrated ten years of Excel books into SQL, and helped
+                cut month-end close from two weeks to four days. That same summer I analyzed 2.4M+ NYC crash
+                records for Columbia's Northeast Big Data Innovation Hub.
               </p>
               <p>
-                I'm passionate about full-stack development, cloud infrastructure, and machine learning applications.
-                Currently seeking internships and opportunities where I can build production-ready systems that scale.
+                On my own time I build things like TradeDesk, a stateful LLM chat service on Cloudflare
+                Workers and Durable Objects, and a quantitative trading simulator with a backtesting engine
+                and risk layer. I'm looking for software engineering internships and roles where engineering
+                meets finance.
               </p>
             </div>
           </motion.div>
@@ -101,6 +117,46 @@ const About = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Education */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-16"
+        >
+          <h3 className="text-2xl font-semibold mb-6 text-black">Education</h3>
+          <div className="bg-white border border-deep-charcoal/10 p-8">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+              <div>
+                <h4 className="text-xl font-bold text-black mb-1">
+                  {education.school}
+                </h4>
+                <p className="text-deep-charcoal font-medium">
+                  {education.degree} · GPA {education.gpa}
+                </p>
+              </div>
+              <div className="mt-2 md:mt-0 md:text-right">
+                <p className="text-sm text-deep-charcoal/60 font-medium">
+                  {education.graduation}
+                </p>
+                <p className="text-sm text-deep-charcoal/60">
+                  {education.location}
+                </p>
+              </div>
+            </div>
+            <ul className="space-y-3">
+              {education.details.map((detail) => (
+                <li key={detail.label} className="text-sm text-deep-charcoal flex items-start">
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-black mr-3 mt-2 flex-shrink-0" />
+                  <span>
+                    <span className="font-semibold">{detail.label}:</span> {detail.text}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
