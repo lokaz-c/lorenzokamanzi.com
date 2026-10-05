@@ -10,7 +10,7 @@ const projects = [
     description: 'Ticker-aware trading research chat on Cloudflare\'s edge stack, with one Durable Object per conversation.',
     bullets: [
       'One Durable Object per session: single-threaded, strongly consistent conversation state with no locking in app code',
-      'Context is the last 20 messages plus the three latest same-ticker analyses, pulled from D1 per request',
+      'Context per request: the last 20 messages from DO storage plus the three latest same-ticker analyses from D1',
       'Streams Llama 3.3 70B replies as server-sent events; a tee\'d copy is persisted to DO storage and D1 in the background',
       'D1 (SQLite) schema under migrations, indexed on ticker, session and recency; history and rollup routes',
       'Single-file Vite front end: streaming markdown render, Web Speech API voice input, per-ticker history sidebar'
