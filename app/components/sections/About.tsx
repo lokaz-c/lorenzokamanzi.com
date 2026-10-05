@@ -1,13 +1,13 @@
 'use client'
 
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 
 const funFacts = [
-  { id: 1, emoji: '🚀', text: 'Co-founded Creo (984 signups)' },
-  { id: 2, emoji: '🏆', text: 'HackRU Finalist (Top 5% of 142)' },
-  { id: 3, emoji: '🌍', text: 'All-Star Code Scholar' },
-  { id: 4, emoji: '📈', text: 'Dean\'s List · 3.8 GPA' },
+  { id: 1, value: '984', text: 'Signups on Creo, the startup I co-founded' },
+  { id: 2, value: 'Top 5%', text: 'HackRU Finalist, Fall 2025 (142 projects)' },
+  { id: 3, value: '3.8', text: 'GPA, Dean\'s List' },
+  { id: 4, value: 'Scholar', text: 'All-Star Code' },
 ]
 
 const education = {
@@ -26,7 +26,6 @@ const education = {
 const About = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [hoveredFact, setHoveredFact] = useState<number | null>(null)
 
   return (
     <section ref={ref} className="py-32 px-6 md:px-12 bg-light-grey">
@@ -90,24 +89,15 @@ const About = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  onHoverStart={() => setHoveredFact(fact.id)}
-                  onHoverEnd={() => setHoveredFact(null)}
                   className="relative"
                 >
                   <motion.div
                     whileHover={{ y: -4 }}
-                    className="bg-white p-6 border border-deep-charcoal/10 cursor-default transition-all"
+                    className="h-full bg-white p-6 border border-deep-charcoal/10 cursor-default transition-all"
                   >
-                    <motion.div
-                      animate={{
-                        scale: hoveredFact === fact.id ? 1.2 : 1,
-                        rotate: hoveredFact === fact.id ? 10 : 0,
-                      }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                      className="text-3xl mb-3"
-                    >
-                      {fact.emoji}
-                    </motion.div>
+                    <div className="text-3xl font-bold text-black mb-2">
+                      {fact.value}
+                    </div>
                     <p className="text-sm text-deep-charcoal font-medium leading-snug">
                       {fact.text}
                     </p>

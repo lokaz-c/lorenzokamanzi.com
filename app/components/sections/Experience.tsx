@@ -30,8 +30,7 @@ const experiences: TimelineEntry[] = [
       'Stage 2: a rule-based validator screens vague differentiation claims before GPT-4o runs against a 100-competitor list',
       'Reworked the scoring flow on beta feedback; onboarding drop-off fell 28% from the 45-user beta to the next cohort'
     ],
-    tech: ['Next.js', 'TypeScript', 'Supabase', 'Firestore', 'GPT-4o'],
-    link: { href: 'https://buildwithcreo.com', label: 'Visit Website' }
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'Firestore', 'GPT-4o']
   },
   {
     id: 2,
