@@ -25,9 +25,9 @@ const projects = [
     title: 'Quantitative Trading Simulator',
     description: 'Backtesting platform for systematic trading strategies, with a risk layer and synthetic market data.',
     bullets: [
-      'Backtesting engine: pluggable strategies (MA crossover, RSI, ATR breakout), Sharpe, CAGR and drawdown metrics',
-      'Risk layer (position caps, stop-losses) benchmarked vs. an unmanaged baseline; Flask REST API and dashboard',
-      'Regime-switching GBM data generator (bull, bear, sideways); 23 pytest tests run in CI on Python 3.10 and 3.11'
+      'Backtesting engine: pluggable strategies (MA crossover, RSI, breakout with ATR stop), Sharpe, CAGR and drawdown metrics',
+      'Risk layer (position caps, stop-losses, drawdown halt) benchmarked vs. an unmanaged baseline; Flask API and dashboard',
+      'Seeded Markov regime-switching GBM generator (bull, bear, sideways); 86 pytest tests in CI on Python 3.10 and 3.11'
     ],
     tech: ['Python', 'Flask', 'PostgreSQL', 'Docker', 'pytest'],
     category: 'Quant Finance',
