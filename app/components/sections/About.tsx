@@ -56,8 +56,8 @@ const About = () => {
               <p>
                 I'm a double major in Computer Science and Finance at Rutgers University–New Brunswick,
                 graduating May 2028. With one co-founder I built Creo, a startup validation platform with
-                984 signups, where I wrote the scoring engine and a two-stage competitor check that settles
-                clear cases without an API call.
+                984 signups: a weighted scoring engine and a competitor check that screens ideas before an
+                LLM analysis.
               </p>
               <p>
                 In summer 2025 I led an Odoo ERP rollout at DIKAM Fashion, a garment manufacturer in Kigali:
@@ -67,9 +67,9 @@ const About = () => {
               </p>
               <p>
                 On my own time I build things like TradeDesk, a stateful LLM chat service on Cloudflare
-                Workers and Durable Objects, and a quantitative trading simulator with a backtesting engine
-                and risk layer. I'm looking for software engineering internships and roles where engineering
-                meets finance.
+                Workers and Durable Objects; market-data, a Java and PostgreSQL service for prices and
+                indicators; and a quantitative trading simulator with a backtesting engine and risk layer.
+                I'm looking for software engineering internships and roles where engineering meets finance.
               </p>
             </div>
           </motion.div>

@@ -12,7 +12,7 @@ const skillCategories = [
   {
     category: 'Frameworks & Tools',
     statLabel: 'Frameworks & Tools',
-    skills: ['React', 'Next.js', 'Flutter', 'Flask', 'Pandas', 'NumPy', 'pytest', 'Git', 'GitHub Actions', 'Docker'],
+    skills: ['Spring Boot', 'React', 'Next.js', 'Flutter', 'Flask', 'Pandas', 'NumPy', 'pytest', 'Git', 'GitHub Actions', 'Docker'],
   },
   {
     category: 'Cloud & Databases',

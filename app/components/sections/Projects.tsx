@@ -10,10 +10,10 @@ const projects = [
     description: 'Ticker-aware trading research chat on Cloudflare\'s edge stack, with one Durable Object per conversation.',
     bullets: [
       'One Durable Object per session: single-threaded, strongly consistent conversation state with no locking in app code',
-      'Context per request: the last 20 messages from DO storage plus the three latest same-ticker analyses from D1',
-      'Streams Llama 3.3 70B replies as server-sent events; a tee\'d copy is persisted to DO storage and D1 in the background',
-      'D1 (SQLite) schema under migrations, indexed on ticker, session and recency; history and rollup routes',
-      'Single-file Vite front end: streaming markdown render, Web Speech API voice input, per-ticker history sidebar'
+      'Answers grounded through Workers AI tool calls to the market-data API; a post-check flags any price not in the data',
+      'Streams Llama 3.3 70B over SSE; a tee\'d copy is persisted to DO storage and D1, indexed on (ticker, created_at)',
+      'Per-IP rate limits, a daily D1 budget and token caps; 548 vitest tests across the Workers pool and jsdom',
+      'Vite front end: DOMPurify-sanitized markdown, voice input, history sidebar, Lightweight Charts with the cited levels'
     ],
     tech: ['TypeScript', 'Cloudflare Workers', 'Durable Objects', 'D1 (SQLite)', 'Workers AI', 'Vite'],
     category: 'Edge Backend',
@@ -26,13 +26,46 @@ const projects = [
     description: 'Backtesting platform for systematic trading strategies, with a risk layer and synthetic market data.',
     bullets: [
       'Backtesting engine: pluggable strategies (MA crossover, RSI, breakout with ATR stop), Sharpe, CAGR and drawdown metrics',
-      'Risk layer (position caps, stop-losses, drawdown halt) benchmarked vs. an unmanaged baseline; Flask API and dashboard',
-      'Seeded Markov regime-switching GBM generator (bull, bear, sideways); 86 pytest tests in CI on Python 3.10 and 3.11'
+      'Risk layer (position caps, stop-losses, drawdown halt) vs. an unmanaged baseline; Flask API and React/TypeScript UI',
+      'Profiled the bar loop and precomputed indicators: 25.8 s to 0.12 s on 32,625 rows, results byte-identical in CI',
+      'PostgreSQL schema under Alembic (NUMERIC money, TIMESTAMPTZ, CHECKs); drawdown and Sharpe re-checked in SQL',
+      'Seeded Markov regime-switching GBM generator; 430 pytest and 32 frontend tests in CI on Python 3.11 and 3.12'
     ],
-    tech: ['Python', 'Flask', 'PostgreSQL', 'Docker', 'pytest'],
+    tech: ['Python', 'Flask', 'PostgreSQL', 'React', 'TypeScript', 'Docker', 'pytest'],
     category: 'Quant Finance',
     period: 'Dec 2025 – Present',
     link: 'https://github.com/lokaz-c/quant'
+  },
+  {
+    id: 3,
+    title: 'market-data – Market Data Service in Java and SQL',
+    description: 'Ingests daily US equity bars and splits into PostgreSQL and serves prices, indicators and levels over a REST API.',
+    bullets: [
+      'Java 25 and Spring Boot 4 with hand-written SQL through JdbcClient (no ORM); Flyway migrations on PostgreSQL 18',
+      'Idempotent ingestion (ON CONFLICT upserts, retries with backoff); split-adjusted prices in a window-function view',
+      'SMA, volatility, ATR, 52-week range and pivots in SQL; EXPLAIN-driven view rewrite: last 100 bars 7.62 ms to 0.59 ms',
+      'REST API with RFC 9457 errors, keyset pagination, ETags, per-IP rate limits and scoped API keys; React chart explorer',
+      'JUnit, Testcontainers and WireMock tests; k6 load test at 200 req/s: p95 19.5 ms (local run, synthetic data)'
+    ],
+    tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Flyway', 'Testcontainers', 'React', 'Docker'],
+    category: 'Backend / SQL',
+    period: 'Oct 2026',
+    link: 'https://github.com/lokaz-c/market-data'
+  },
+  {
+    id: 4,
+    title: 'ERP Migration Demo – Excel Books to PostgreSQL',
+    description: 'A reconstruction, on synthetic data, of the approach behind the DIKAM migration: messy Excel books into a normalized schema.',
+    bullets: [
+      'Seeded generator writes 42 messy workbooks (mixed date formats, RWF and USD amounts, misspelled suppliers) plus ground truth',
+      'Python and SQL ETL into PostgreSQL 18: constraints, a rejects table with reason codes, window-function de-duplication',
+      'Supplier matching scored against the ground truth: precision 1.000, recall 0.758, no wrong merges',
+      'Data-quality report: 21,120 rows in, 18,901 loaded, 530 duplicates merged, 325 rejected with a reason'
+    ],
+    tech: ['Python', 'PostgreSQL', 'SQL', 'pandas', 'pytest', 'Testcontainers'],
+    category: 'Data Engineering',
+    period: 'Oct 2026',
+    link: 'https://github.com/lokaz-c/erp-migration-demo'
   }
 ]
 
