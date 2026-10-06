@@ -24,14 +24,13 @@ const experiences: TimelineEntry[] = [
     location: 'New Brunswick, NJ',
     description: 'Startup validation platform with 984 signups and 25–50 daily active users.',
     achievements: [
-      'Built Creo with one co-founder: Next.js/TypeScript, Supabase auth, Firestore, GPT-4o on strict JSON schemas',
-      'Wrote the scoring engine: 28 weighted questions in six dimensions roll up to a 0–100 score with flags and a stage label',
-      'Competitor check, stage 1: a keyword pre-filter over 30 industry maps settles clear cases with no API call',
-      'Stage 2: a rule-based validator screens vague differentiation claims before GPT-4o runs against a 100-competitor list',
+      'Co-built Creo with one co-founder: Next.js/TypeScript, Supabase auth, GPT-4o returning JSON',
+      'Scoring engine: 28 weighted questions in six dimensions roll up to a 0–100 score with red/yellow flags and a stage label',
+      'Competitor check: a keyword pre-filter flags ideas in crowded markets and asks the founder for a differentiation statement',
+      'A rule-based validator screens vague differentiation claims before the GPT-4o competitor analysis runs',
       'Reworked the scoring flow on beta feedback; onboarding drop-off fell 28% from the 45-user beta to the next cohort'
     ],
-    tech: ['Next.js', 'TypeScript', 'Supabase', 'Firestore', 'GPT-4o'],
-    link: { href: 'https://buildwithcreo.com', label: 'Visit Website' }
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'GPT-4o']
   },
   {
     id: 2,
